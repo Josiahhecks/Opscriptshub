@@ -1,148 +1,145 @@
-if not game:IsLoaded() then 
-    game.Loaded:Wait()
-end
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Eazvy/UILibs/main/Librarys/FriseX"))()
-
-local Window = Library:CreateWindow({
+local Window = OrionLib:MakeWindow({
     Name = "Multi-Game Hub",
-    LoadingTitle = "Loading Scripts...",
-    LoadingSubtitle = "by Your Name",
-    ConfigurationSaving = {
-        Enabled = true,
-        FolderName = "GameHub",
-        FileName = "Config"
-    }
+    HidePremium = false,
+    SaveConfig = true,
+    ConfigFolder = "GameHubConfig",
+    IntroEnabled = true,
+    IntroText = "Game Hub Loading..."
 })
 
-local Tab1 = Window:CreateTab("DaHood", true)
-local Tab2 = Window:CreateTab("Silent Aim")
-local Tab3 = Window:CreateTab("Blade Ball")
-local Tab4 = Window:CreateTab("TSB")
-local Tab5 = Window:CreateTab("Blox Fruits")
-local Tab6 = Window:CreateTab("Other Games")
+-- DaHood Tab
+local DaHoodTab = Window:MakeTab({
+    Name = "DaHood",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
 
--- DaHood Scripts
-local Section1 = Tab1:CreateSection("Main Scripts")
-
-Tab1:CreateButton({
+DaHoodTab:AddButton({
     Name = "SwagMode",
     Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-projects/master/SwagModeV002'))()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/lerkermer/lua-scripts/master/SwagModeV002'))()
     end
 })
 
-Tab1:CreateButton({
+DaHoodTab:AddButton({
     Name = "SpaceX",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/spacexrandom/Lua/main/DaHood", true))()
     end
 })
 
-Tab1:CreateButton({
-    Name = "Vaz Premium",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/mp-8/vazz/main/vvvv",true))()
-    end
+-- Silent Aim Tab
+local SilentTab = Window:MakeTab({
+    Name = "Silent Aim",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
 })
 
-Tab1:CreateButton({
-    Name = "Zell Hub",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/RobloxHackerProLuaStuff/zellhubnew/main/SCRIPTPRO.lua"))()
-    end
-})
-
--- Silent Aim Scripts
-local Section2 = Tab2:CreateSection("Aim Scripts")
-
-Tab2:CreateButton({
+SilentTab:AddButton({
     Name = "Yun Rewrite",
     Callback = function()
         loadstring(game:HttpGet('https://pastebin.com/raw/fbrrWC8a'))()
     end
 })
 
-Tab2:CreateButton({
+SilentTab:AddButton({
     Name = "Purple Silent Aim",
     Callback = function()
         loadstring(game:HttpGet('https://pastebin.com/raw/LADPPT9P'))()
     end
 })
 
--- Blade Ball Scripts
-local Section3 = Tab3:CreateSection("Blade Ball")
+-- Blade Ball Tab
+local BladeBallTab = Window:MakeTab({
+    Name = "Blade Ball",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
 
-Tab3:CreateButton({
+BladeBallTab:AddButton({
     Name = "RV Parry",
     Callback = function()
         loadstring(game:HttpGet("https://rawscripts.net/raw/Blade-Ball-RV-Parry-12337"))()
     end
 })
 
--- TSB Scripts
-local Section4 = Tab4:CreateSection("TSB Scripts")
+-- TSB Tab
+local TSBTab = Window:MakeTab({
+    Name = "TSB",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
 
-Tab4:CreateButton({
+TSBTab:AddButton({
     Name = "Forge Hub",
     Callback = function()
         loadstring(game:HttpGet("https://rawscripts.net/raw/The-Strongest-Battlegrounds-Forge-Hub-24216"))()
     end
 })
 
-Tab4:CreateButton({
+TSBTab:AddButton({
     Name = "Moveset Hub",
     Callback = function()
         loadstring(game:HttpGet("https://rawscripts.net/raw/The-Strongest-Battlegrounds-Moveset-Hub-UPDATE-24126"))()
     end
 })
 
-Tab4:CreateButton({
+TSBTab:AddButton({
     Name = "KJ HUB X",
     Callback = function()
         loadstring(game:HttpGet("https://rawscripts.net/raw/The-Strongest-Battlegrounds-KJ-HUB-X-23284"))()
     end
 })
 
--- Blox Fruits Scripts
-local Section5 = Tab5:CreateSection("Blox Fruits")
+-- Blox Fruits Tab
+local BloxFruitsTab = Window:MakeTab({
+    Name = "Blox Fruits",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
 
-Tab5:CreateButton({
+BloxFruitsTab:AddButton({
     Name = "ZI HUB",
     Callback = function()
         loadstring(game:HttpGet("https://rawscripts.net/raw/Blox-Fruits-ZI-HUB-OP-AUTOFARM-SOLARA-SUPORTED-23832"))()
     end
 })
 
-Tab5:CreateButton({
+BloxFruitsTab:AddButton({
     Name = "YHUB V5",
     Callback = function()
         loadstring(game:HttpGet("https://rawscripts.net/raw/Blox-Fruits-YHUB-V5-23158"))()
     end
 })
 
--- Other Games Scripts
-local Section6 = Tab6:CreateSection("Other Games")
+-- Other Games Tab
+local OtherTab = Window:MakeTab({
+    Name = "Other Games",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
 
-Tab6:CreateButton({
+OtherTab:AddButton({
     Name = "Bedwars Aurora",
     Callback = function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/cocotv666/Aurora/refs/heads/main/Aurora_Loader'))()
     end
 })
 
-Tab6:CreateButton({
+OtherTab:AddButton({
     Name = "Ro Ghoul",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/JRL-lav/Main/main/Ro-Ghoul"))()
     end
 })
 
-Tab6:CreateButton({
+OtherTab:AddButton({
     Name = "King Legacy",
     Callback = function()
         loadstring(game:HttpGet("https://github.com/KV-TCode/DonateMe/releases/download/TC_Hub/Loader.lua"))()
     end
 })
 
-Window:Initialize()
+OrionLib:Init()
